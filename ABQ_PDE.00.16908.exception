@@ -1,0 +1,37 @@
+<Description>
+   ABQ_PDE.exe / rank 0 / thread 0  encountered a system exception 0x80000003 (EXCEPTION_BREAKPOINT)
+
+</Description>
+
+<Context>
+   ABQ_PDE
+</Context>
+
+<Callstack>
+  1)  ntdll.dll                   RtlUserThreadStart                      
+</Callstack>
+
+<Memory>
+   <Current>            0 GB </Current>
+   <Resident>           0 GB </Resident>
+   <Physical>          15 GB </Physical>
+   <Limit>              0 GB </Limit>
+   <Accessible>        15 GB </Accessible>
+   <Available>          6 GB </Available>
+   <Allocator>            DL </Allocator>
+</Memory>
+
+<Swap>
+       <Size>          18 GB </Size>
+       <Used>          13 GB </Used>
+       <Free>           4 GB </Free>
+</Swap>
+
+<Directories>
+  <current> C:\temp                        </current> <free>    142 GB </free>   <used>    229 GB </used> 
+     <temp> C:\Users\macie\AppData\Local\Temp </temp>    <free>    142 GB </free>
+</Directories>
+
+<Installation>
+</Installation>
+
