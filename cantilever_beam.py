@@ -2,6 +2,8 @@ from abaqus import *
 from abaqusConstants import *
 import regionToolset
 
+print()
+
 session.viewports['Viewport: 1'].setValues(displayedObject=None)
 
 if mdb.models.keys()[0] != "Cantilever Beam":
