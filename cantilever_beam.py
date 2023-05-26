@@ -12,7 +12,6 @@ if mdb.models.keys()[0] != "Cantilever Beam":
 cantileverModel = mdb.models["Cantilever Beam"]
 
 import part
-import sketch
 
 cantileverSketch = cantileverModel.ConstrainedSketch(name="Beam Section", sheetSize=5)
 cantileverSketch.rectangle(point1=(0.0, 0.0), point2=(25.0, 20.0))
@@ -34,3 +33,8 @@ cantileverPart.SectionAssignment(region=region_of_cantilever, sectionName="Canti
 import assembly
 cantileverAssembly = cantileverModel.rootAssembly
 cantileverInstance = cantileverAssembly.Instance(name="Cantilever Instance", part=cantileverPart)
+
+"""Static step is used to simulate load"""
+cantileverModel.StaticStep(name="Apply load", previous="Initial", description="Load is applied during this step")
+
+print(cantileverModel.FieldOutputRequest)
