@@ -474,3 +474,31 @@ def Macro1():
         CONTOURS_ON_DEF, ))
 
 
+def encastre_bc():
+    import section
+    import regionToolset
+    import displayGroupMdbToolset as dgm
+    import part
+    import material
+    import assembly
+    import step
+    import interaction
+    import load
+    import mesh
+    import optimization
+    import job
+    import sketch
+    import visualization
+    import xyPlot
+    import displayGroupOdbToolset as dgo
+    import connectorBehavior
+    a = mdb.models['Cantilever Beam'].rootAssembly
+    session.viewports['Viewport: 1'].setValues(displayedObject=a)
+    a = mdb.models['Cantilever Beam'].rootAssembly
+    f1 = a.instances['Cantilever Instance'].faces
+    faces1 = f1.getSequenceFromMask(mask=('[#10 ]', ), )
+    region = a.Set(faces=faces1, name='Set-1')
+    mdb.models['Cantilever Beam'].EncastreBC(name='One end fixed', 
+        createStepName='Initial', region=region, localCsys=None)
+
+
