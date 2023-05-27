@@ -614,3 +614,28 @@ def save():
     mdb.saveAs(pathName='D:/SIMULIA/Work/Test.cae')
 
 
+def open_macro():
+    import section
+    import regionToolset
+    import displayGroupMdbToolset as dgm
+    import part
+    import material
+    import assembly
+    import step
+    import interaction
+    import load
+    import mesh
+    import optimization
+    import job
+    import sketch
+    import visualization
+    import xyPlot
+    import displayGroupOdbToolset as dgo
+    import connectorBehavior
+    session.mdbData.summary()
+    session.viewports['Viewport: 1'].setValues(
+        displayedObject=session.odbs['D:/SIMULIA/Work/Test.odb'])
+    o1 = session.openOdb(name='D:/SIMULIA/Work/Test.odb')
+    session.viewports['Viewport: 1'].setValues(displayedObject=o1)
+
+

@@ -12,7 +12,10 @@ print(vf, rmin, ert)
 if vf<0 or rmin<0 or ert<0:
     sys.exit()
 
-mddb = getInput('Input CAE file:', default='Beam.cae')#openOdb()
+# mddb = openOdb(getInput('Input CAE file:', default='Test.cae'))
+
+o1 = session.openOdb(name='D:/SIMULIA/Work/Test.odb')
+session.viewports['Viewport: 1'].setValues(displayedObject=o1)
 
 ##var_list = [k for k in getInput(('Name:', 'abaqus'), dialogTitle="Parameters")]
 ##print(var_list[0])
