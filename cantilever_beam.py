@@ -57,10 +57,25 @@ cantileverModel.Pressure(name="Uniform Pressure", createStepName="Apply load",
                          region=find_face(12.5, 20.0, 100.0), distributionType=UNIFORM,
                          magnitude=0.5, amplitude=UNSET)
 
-coordinates = (12.5, 10.0, 0.0)
+# coordinates = (12.5, 10.0, 0.0)
+# face = cantileverInstance.faces.findAt((coordinates,))
+# face_region = regionToolset.Region(side1Faces=face)
+
+coordinates = (12.5, 10.0, 200.0)
 face = cantileverInstance.faces.findAt((coordinates,))
-face_region = regionToolset.Region(side1Faces=face)
+face_region = (face,)
+cantileverModel.EncastreBC(name='Fixed', createStepName='Initial', region=face_region)
 
-cantileverModel.EncastreBC(name='One end fixed', createStepName='Initial', region=face_region,
-                           localCsys=None)
+"""Mesh"""
+# 1
+import mesh
+region = (cantileverInstance.cells,)
+element_type = mesh.ElemType(elemCode=C3D8I, elemLibrary=STANDARD)
+cantileverAssembly.setElementType(regions=region, elemTypes=(element_type, ))
 
+# Seed the part instance
+cantileverAssembly.seedPartInstance(regions=(cantileverInstance, ), size=10.0)
+cantileverAssembly.generateMesh(regions=(cantileverInstance, ))
+
+myViewport = session.viewports["Cantilever Beam"].setValues(displayedObject=none)
+myViewport.assemblyDisplay.setValues(mesh=ON)

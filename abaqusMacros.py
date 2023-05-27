@@ -502,3 +502,94 @@ def encastre_bc():
         createStepName='Initial', region=region, localCsys=None)
 
 
+def veiwport():
+    import section
+    import regionToolset
+    import displayGroupMdbToolset as dgm
+    import part
+    import material
+    import assembly
+    import step
+    import interaction
+    import load
+    import mesh
+    import optimization
+    import job
+    import sketch
+    import visualization
+    import xyPlot
+    import displayGroupOdbToolset as dgo
+    import connectorBehavior
+    session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Initial')
+
+
+def select_face():
+    import section
+    import regionToolset
+    import displayGroupMdbToolset as dgm
+    import part
+    import material
+    import assembly
+    import step
+    import interaction
+    import load
+    import mesh
+    import optimization
+    import job
+    import sketch
+    import visualization
+    import xyPlot
+    import displayGroupOdbToolset as dgo
+    import connectorBehavior
+    session.viewports['Viewport: 1'].view.setValues(nearPlane=355.828, 
+        farPlane=532.191, width=190.087, height=91.1592, cameraUpVector=(
+        -0.503614, 0.572908, -0.646645), cameraTarget=(9.16525, 4.5582, 
+        108.777))
+
+
+def test():
+    import section
+    import regionToolset
+    import displayGroupMdbToolset as dgm
+    import part
+    import material
+    import assembly
+    import step
+    import interaction
+    import load
+    import mesh
+    import optimization
+    import job
+    import sketch
+    import visualization
+    import xyPlot
+    import displayGroupOdbToolset as dgo
+    import connectorBehavior
+    session.viewports['Viewport: 1'].view.setValues(nearPlane=356.277, 
+        farPlane=531.741, width=190.327, height=91.2745, cameraPosition=(
+        265.514, 260.907, 365.125), cameraUpVector=(-0.687794, 0.565536, 
+        -0.455092), cameraTarget=(9.16525, 4.5582, 108.777))
+
+
+def view_load():
+    import section
+    import regionToolset
+    import displayGroupMdbToolset as dgm
+    import part
+    import material
+    import assembly
+    import step
+    import interaction
+    import load
+    import mesh
+    import optimization
+    import job
+    import sketch
+    import visualization
+    import xyPlot
+    import displayGroupOdbToolset as dgo
+    import connectorBehavior
+    session.viewports['Cantilever Beam Example'].assemblyDisplay.setValues(
+        step='Apply load')
+
+
