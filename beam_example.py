@@ -19,7 +19,7 @@ myModel = mdb.Model(name='Beam')
 # and the results of the analysis.
 
 myViewport = session.Viewport(name='Cantilever Beam Example',
-    origin=(20, 20), width=150, height=120)
+    origin=(0, 0), width=700, height=700)
 
 #-----------------------------------------------------
 
@@ -150,27 +150,27 @@ myViewport.setValues(displayedObject=myAssembly)
 #-------------------------------------------------------
 
 import job
-##
-### Create an analysis job for the model and submit it.
-##
-##jobName = 'beam_tutorial'
-##myJob = mdb.Job(name=jobName, model='Beam',
-##    description='Cantilever beam tutorial')
-##
-### Wait for the job to complete.
-##
-##myJob.submit()
-##myJob.waitForCompletion()
-##
-###-------------------------------------------------------
+
+# Create an analysis job for the model and submit it.
+
+jobName = 'beam_tutorial'
+myJob = mdb.Job(name=jobName, model='Beam',
+   description='Cantilever beam tutorial')
+
+# Wait for the job to complete.
+
+myJob.submit()
+myJob.waitForCompletion()
+
+##-------------------------------------------------------
 ##
 import visualization
 
 # Open the output database and display a
 # default contour plot.
 
-myOdb = visualization.openOdb(path=jobName + '.odb')
-myViewport.setValues(displayedObject=myOdb)
-myViewport.odbDisplay.display.setValues(plotState=CONTOURS_ON_DEF)
-
-myViewport.odbDisplay.commonOptions.setValues(renderStyle=FILLED)
+##myOdb = visualization.openOdb(path=jobName + '.odb')
+##myViewport.setValues(displayedObject=myOdb)
+##myViewport.odbDisplay.display.setValues(plotState=CONTOURS_ON_DEF)
+##
+##myViewport.odbDisplay.commonOptions.setValues(renderStyle=FILLED)

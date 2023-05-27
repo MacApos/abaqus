@@ -1,3 +1,4 @@
+import os
 from abaqus import *
 from abaqusConstants import *
 import regionToolset
@@ -28,7 +29,6 @@ cantileverPart.SectionAssignment(region=region_of_cantilever, sectionName="Canti
 
 import assembly
 cantileverAssembly = cantileverModel.rootAssembly
-session.viewports['Viewport: 1'].setValues(displayedObject=cantileverAssembly)
 cantileverInstance = cantileverAssembly.Instance(name="Cantilever Instance", part=cantileverPart)
 
 """Static step is used to simulate load"""
@@ -57,10 +57,6 @@ cantileverModel.Pressure(name="Uniform Pressure", createStepName="Apply load",
                          region=find_face(12.5, 20.0, 100.0), distributionType=UNIFORM,
                          magnitude=0.5, amplitude=UNSET)
 
-# coordinates = (12.5, 10.0, 0.0)
-# face = cantileverInstance.faces.findAt((coordinates,))
-# face_region = regionToolset.Region(side1Faces=face)
-
 coordinates = (12.5, 10.0, 200.0)
 face = cantileverInstance.faces.findAt((coordinates,))
 face_region = (face,)
@@ -77,5 +73,25 @@ cantileverAssembly.setElementType(regions=region, elemTypes=(element_type, ))
 cantileverAssembly.seedPartInstance(regions=(cantileverInstance, ), size=10.0)
 cantileverAssembly.generateMesh(regions=(cantileverInstance, ))
 
-myViewport = session.viewports["Cantilever Beam"].setValues(displayedObject=none)
-myViewport.assemblyDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].setValues(displayedObject=cantileverAssembly)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(meshTechnique=ON)
+
+"""Simulation"""
+jobName = "Test"
+cantileverJob = mdb.Job(name=jobName, model="Cantilever Beam", description="Cantilever simulation")
+if not os.path.exists(os.path.join(os.getcwd(), jobName+'.cae')):
+    cantileverJob.submit()
+    cantileverJob.waitForCompletion()
+else:
+    print(".cae file already exists")
+
+"""Visualisation"""
+import visualization
+cantileverOdb = visualization.openOdb(path=jobName + ".odb")
+session.viewports['Viewport: 1'].setValues(displayedObject=cantileverOdb)
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=CONTOURS_ON_DEF)
+session.viewports['Viewport: 1'].odbDisplay.commonOptions.setValues(renderStyle=FILLED)
+
+mdb.saveAs(pathName=os.path.join(os.getcwd(), jobName+'.cae'))
+

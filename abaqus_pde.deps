@@ -3,20 +3,10 @@
 #
 ::Recent Traced Files
 ::Recent Main Files
-d:/SIMULIA/Work/test.py
 d:/SIMULIA/Work/cantilever_beam.py
-d:/SIMULIA/Work/beam_example.py
-d:/SIMULIA/Work/gxi_stiffplate_caemodel.py
 ::Recent Files
-d:/SIMULIA/Work/test.py
 d:/SIMULIA/Work/cantilever_beam.py
-d:/SIMULIA/Work/beam_example.py
-d:/SIMULIA/Work/gxi_stiffplate_caemodel.py
-::test.py
-d:/SIMULIA/Work/test.py
 ::cantilever_beam.py
-d:/SIMULIA/Work/cantilever_beam.py
-::beam_example.py
 d:/SIMULIA/CAE/2022LE/win_b64/SMA/site/abaqus_v6.env
 d:/SIMULIA/CAE/2022LE/win_b64/SMA/site/basic_v6.env
 d:/SIMULIA/CAE/2022LE/win_b64/SMA/site/custom_v6.env
@@ -44,11 +34,4 @@ d:/SIMULIA/CAE/2022LE/win_b64/tools/SMApy/python2.7/lib/stat.py
 d:/SIMULIA/CAE/2022LE/win_b64/tools/SMApy/python2.7/lib/subprocess.py
 d:/SIMULIA/CAE/2022LE/win_b64/tools/SMApy/python2.7/lib/tempfile.py
 d:/SIMULIA/CAE/2022LE/win_b64/tools/SMApy/python2.7/lib/traceback.py
-d:/SIMULIA/Work/beam_example.py
-::_abaqus1_.guiLog
-::gxi_stiffplate_caemodel.py
-d:/SIMULIA/Work/gxi_stiffplate_caemodel.py
-::cylinder.py
-c:/temp/cylinder.py
-::cantiliver.py
-c:/temp/cantiliver.py
+d:/SIMULIA/Work/cantilever_beam.py
